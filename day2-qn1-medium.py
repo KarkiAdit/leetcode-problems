@@ -21,9 +21,8 @@ class Solution:
         curr_window_sum = maximum
         for idx in range(1, len(nums)):
             if curr_window_sum < 0 and nums[idx] > curr_window_sum:
-                maximum = max(maximum, nums[idx])
                 curr_window_sum = nums[idx]
             else:
                 curr_window_sum += nums[idx]
-                maximum = max(maximum, curr_window_sum)
+            maximum = max(maximum, curr_window_sum)
         return maximum
