@@ -40,7 +40,35 @@ class Solution:
         sum_a_and_b = square_sum_difference / sum_difference
         a = (sum_a_and_b + sum_difference) // 2
         b = sum_a_and_b - a
-        return [int(a), int(b)]        
+        return [int(a), int(b)]  
+
+# Optimized O(n) time and O(1) space solution. Only tuple is changed to list
+class Solution:
+    # @param A : tuple of integers
+    # @return a list of integers
+    def repeatedNumber(self, A):
+        list_A = list(A)
+        for num in A:
+            curr_val = abs(num)
+            if list_A[curr_val - 1] < 0:
+                repeated = curr_val
+            else:
+                list_A[curr_val - 1] *= -1
+        for idx in range(len(list_A)):
+            if list_A[idx] > 0:
+                missing  = idx + 1
+                break
+        return [repeated, missing]
+              
+        
+            
+        
+                
+        
+                
+        
+
+        
         
                 
         
