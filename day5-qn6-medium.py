@@ -17,7 +17,30 @@ class Solution:
                 break
         return return_list
         
-                
+# Optimized mathematical solution using O(1) space
+class Solution:
+    # @param A : tuple of integers
+    # @return a list of integers
+    def repeatedNumber(self, A):
+        # Find square and sum for integers in A
+        given_integers_sum = 0
+        given_integers_square_sum = 0
+        for num in A:
+            given_integers_sum += num
+            given_integers_square_sum += num ** 2
+        # Find square and sum for generic n integers
+        sum_of_n_integers = 0
+        square_sum_of_n_integers = 0
+        for n in range(1, len(A) + 1):
+            sum_of_n_integers += n
+            square_sum_of_n_integers += n ** 2
+        # Use formula
+        sum_difference = given_integers_sum - sum_of_n_integers
+        square_sum_difference = given_integers_square_sum - square_sum_of_n_integers
+        sum_a_and_b = square_sum_difference / sum_difference
+        a = (sum_a_and_b + sum_difference) // 2
+        b = sum_a_and_b - a
+        return [int(a), int(b)]        
         
                 
         
