@@ -32,6 +32,43 @@ class Solution:
             diagonaled_arr.extend(arr)
         return diagonaled_arr
 
+# Optimized O(1) space solution
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        no_of_rows = len(mat)
+        no_of_cols = len(mat[0])
+        diagonaled = []
+        x = 0
+        y = 0
+        while x < no_of_rows and y < no_of_cols:
+            # For spiral moving up
+            while x >= 0 and y < no_of_cols:
+                diagonaled.append(mat[x][y])
+                x -= 1
+                y += 1
+            # Change the direction of spiral and adjust start indices
+            if y < no_of_cols:
+                x += 1
+            else:
+                x += 2
+                y -= 1
+            # Check if we have hit the end of matrix
+            if x == no_of_rows or y == no_of_cols:
+                break
+            # For spiral moving down
+            while x < no_of_rows and y >= 0:
+                diagonaled.append(mat[x][y])
+                x += 1
+                y -= 1
+            # Change the direction of spiral and adjust start indices
+            if x < no_of_rows:
+                y += 1
+            else:
+                x -= 1
+                y += 2
+        return diagonaled
+            
+
 
 
 
