@@ -9,7 +9,7 @@
 #         self.right = right
 
 
-# Unoptimized O(n) additional space solution
+# Unoptimized O(n) additional space solution - using (in-order traversal)
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         in_ordered = []
@@ -31,3 +31,18 @@ class Solution:
             else:
                 return False
         return True
+
+
+# Optimized O(1) space solution using pre-order traversal
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        def traverse_and_validate(node, low=float("-inf"), high=float("inf")):
+            if not node:
+                return True
+            if not (low < node.val < high):
+                return False
+            return traverse_and_validate(
+                node.left, low, node.val
+            ) and traverse_and_validate(node.right, node.val, high)
+
+        return traverse_and_validate(root)
