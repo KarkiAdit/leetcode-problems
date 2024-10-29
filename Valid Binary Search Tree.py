@@ -46,3 +46,24 @@ class Solution:
             ) and traverse_and_validate(node.right, node.val, high)
 
         return traverse_and_validate(root)
+
+
+# Easiest in-order traversal solution
+class Solution:
+    previous = TreeNode(float("-inf"))
+
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        # Traverse left
+        if not self.isValidBST(root.left):
+            return False
+        # Validate if BST condition is met
+        if self.previous.val < root.val:
+            self.previous = root
+        else:
+            return False
+        # Traverse right
+        if not self.isValidBST(root.right):
+            return False
+        return True
