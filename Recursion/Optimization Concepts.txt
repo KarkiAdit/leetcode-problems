@@ -1,0 +1,18 @@
+Time complexity for recursion is unit of time taken to reach the base case.
+Space complexity of recursion is the max depth of stack space used to solve the problem.
+
+// For factorial
+O(n) is the space and time complexity
+
+// For fibonacci
+Time: O(2^(n/2)), O(2^n)
+Spaace: O(n)
+
+// Binary search
+Time: log2(n)
+Space: log2(n)
+
+
+// In order binary tree traversal
+Time: O(n)
+Space: Maximum depth of the tree

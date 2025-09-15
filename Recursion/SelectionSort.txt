@@ -1,0 +1,15 @@
+Pivot element, partitioning, and then recursion
+
+# Quick sort (arr, low, high)
+
+# The base case of course is, low > high
+
+
+8, 3, 2, 7, 9, 6, 4, 5
+# Choose a random pivot 
+# All the elements to the left of the pivot should be smaller
+# All the elements to the right of the pivot should be larger
+# Also called inplace change 
+
+Time complexity: On Average: O(n* log2n), worst O(n^2)
+Space Complexity: O(log2n), worst O(n)

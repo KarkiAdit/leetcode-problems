@@ -1,0 +1,13 @@
+3, 2, 1, 5
+l        r
+And then break them into two small arrays and sort these arrays
+Then merge both of these arrays
+
+# Time complexity of merge sort
+O(n*logn) Merging n times, and dividing it n/2 times all the time
+
+# Space complexity of merge sort
+O(n) // Depth of the recursion stack
+
+
+
